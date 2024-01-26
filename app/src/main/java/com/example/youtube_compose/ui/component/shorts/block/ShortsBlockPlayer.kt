@@ -1,4 +1,4 @@
-package com.example.youtube_compose.ui.component.shorts
+package com.example.youtube_compose.ui.component.shorts.block
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,10 +13,8 @@ import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 
-const val EXAMPLE_VIDEO_URI = "https://www.exit109.com/~dnn/clips/RW20seconds_2.mp4"
-
 @Composable
-fun ShortsPlayer() {
+fun ShortsBlockPlayer(mediaUrl: String) {
     /**
      * 기초 플레이어는 비율을 정하지 않고 비율을 파라미터로 받는 편이 좋다고 판단됨.
      * 추가적으로 자동실행을 위해서 최상위에 플레이어 하나를 두고 launched가 아닌 방향으로 하는 것이 좋다고 판단
@@ -27,32 +25,33 @@ fun ShortsPlayer() {
      * 자동 실행의 경우 launched Effect에서 대응하는 방식이 적합해 보임.
      */
 
-//    val context = LocalContext.current
-//
-//    val exoPlayer = ExoPlayer.Builder(context).build()
-//
-//    val mediaSource = remember(EXAMPLE_VIDEO_URI) {
-//        MediaItem.fromUri(EXAMPLE_VIDEO_URI)
-//    }
-//
-//    // Set MediaSource to ExoPlayer
-//    LaunchedEffect(mediaSource) {
-//        exoPlayer.setMediaItem(mediaSource)
-//        exoPlayer.prepare()
-//    }
-//
-//    // Manage lifecycle events
-//    DisposableEffect(Unit) {
-//        onDispose {
-//            exoPlayer.release()
-//        }
-//    }
+    val context = LocalContext.current
+
+    val exoPlayer = ExoPlayer.Builder(context).build()
+
+    val mediaSource = remember(mediaUrl) {
+        MediaItem.fromUri(mediaUrl)
+    }
+
+
+    // Set MediaSource to ExoPlayer
+    LaunchedEffect(mediaSource) {
+        exoPlayer.setMediaItem(mediaSource)
+        exoPlayer.prepare()
+    }
+
+    // Manage lifecycle events
+    DisposableEffect(Unit) {
+        onDispose {
+            exoPlayer.release()
+        }
+    }
 
     // Use AndroidView to embed an Android View (PlayerView) into Compose
     AndroidView(
         factory = { ctx ->
             PlayerView(ctx).apply {
-//                player = exoPlayer
+                player = exoPlayer
             }
         },
         modifier = Modifier

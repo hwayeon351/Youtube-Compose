@@ -1,10 +1,13 @@
-package com.example.youtube_compose.ui.component.shorts
+package com.example.youtube_compose.ui.component.shorts.block
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -19,19 +22,34 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.youtube_compose.R
 
 @Composable
-fun ShortsBlock() {
+fun ShortsBlockItem(mediaUrl: String, isFocus: Boolean, onClick: () -> Unit) {
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(9f / 16f)
             .clip(RoundedCornerShape(10.dp))
+            .clickable {
+                onClick()
+            }
     ) {
-        ShortsPlayer()
+        if (isFocus) {
+            ShortsBlockPlayer(mediaUrl)
+        } else {
+            Image(
+                painter = painterResource(id = R.drawable.image_default_shorts_thumbnail),
+                contentDescription = "썸네일",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+            )
+        }
         IconButton(
             onClick = { /* do something */ },
             modifier = Modifier
