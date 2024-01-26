@@ -29,13 +29,14 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.example.youtube_compose.ui.component.common.bottomMenu.BottomMenu
 import com.example.youtube_compose.ui.component.common.bottomMenu.BottomMenuType
 import com.example.youtube_compose.ui.component.common.text.Title
+import com.example.youtube_compose.ui.component.shorts.Shorts
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainBody() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
     val lazyListState = rememberLazyListState()
-    val list = listOf("test","test","test","test","test","test","test","test","test")
+    val list = listOf("test","test","test")
 
     Scaffold(
         modifier = Modifier
@@ -95,7 +96,7 @@ fun MainBody() {
                     .background(Color.White)
             ) {
                 items(list) {
-                    HalfPlayer()
+                    Shorts()
                 }
             }
         }
