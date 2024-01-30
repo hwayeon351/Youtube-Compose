@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.youtube_compose.ui.component.main.MainBody
+import com.example.youtube_compose.ui.screen.MainScreen
 import com.example.youtube_compose.ui.theme.YoutubeComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,11 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavHost(navController = navController, startDestination = "main") {
-                        composable("main") {
-                            MainBody()
-                        }
-                    }
+                    MainScreen()
                 }
             }
         }
