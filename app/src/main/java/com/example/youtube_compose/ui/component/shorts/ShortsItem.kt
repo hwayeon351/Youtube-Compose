@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.shorts
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -39,7 +40,9 @@ import androidx.compose.ui.unit.sp
 import com.example.youtube_compose.R
 
 @Composable
-fun ShortsItem(mediaUrl: String) {
+fun ShortsItem(mediaUrl: String, position: Int) {
+    Log.d("[ShortsItem]", "ShortsItem() composition : $position")
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -83,6 +86,8 @@ fun ShortsItem(mediaUrl: String) {
 
 @Composable
 fun ShortsInfo() {
+    Log.d("[ShortsInfo]", "ShortsInfo() composition")
+
     Column(
         modifier = Modifier
             .padding(5.dp)
@@ -144,6 +149,8 @@ enum class ShortsIconType(val title: String, val offResId: Int, val onResId: Int
 }
 @Composable
 fun ShortsButtons() {
+    Log.d("[ShortsButtons]", "ShortsButtons() composition")
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -159,6 +166,8 @@ fun ShortsButtons() {
 
 @Composable
 fun ShortsIcon(type: ShortsIconType) {
+    Log.d("[ShortsIcon]", "ShortsIcon() composition : ${type.title}")
+
     val isSeleted = remember {
         mutableStateOf(false)
     }

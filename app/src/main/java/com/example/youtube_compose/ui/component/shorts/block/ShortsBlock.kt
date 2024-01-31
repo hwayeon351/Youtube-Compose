@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.shorts.block
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ShortsBlock() {
+    Log.d("[ShortsBlockBlock]", "ShortsBlockBlock() composition")
+
     val lazyListState = rememberLazyListState()
     val list = listOf(
         "https://www.exit109.com/~dnn/clips/RW20seconds_2.mp4",

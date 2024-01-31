@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.shorts.block
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -30,6 +31,8 @@ import com.example.youtube_compose.R
 
 @Composable
 fun ShortsBlockHeader() {
+    Log.d("[ShortsBlockHeader]", "ShortsBlockHeader() composition")
+
     Box(
         modifier = Modifier
             .fillMaxWidth()

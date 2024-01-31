@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.shorts
 
+import android.util.Log
 import androidx.annotation.OptIn
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -17,6 +18,8 @@ import androidx.media3.ui.PlayerView
 
 @OptIn(UnstableApi::class) @Composable
 fun ShortsPlayer(mediaUrl: String) {
+    Log.d("[ShortsPlayer]", "ShortsPlayer() composition")
+
     /**
      * 기초 플레이어는 비율을 정하지 않고 비율을 파라미터로 받는 편이 좋다고 판단됨.
      * 추가적으로 자동실행을 위해서 최상위에 플레이어 하나를 두고 launched가 아닌 방향으로 하는 것이 좋다고 판단

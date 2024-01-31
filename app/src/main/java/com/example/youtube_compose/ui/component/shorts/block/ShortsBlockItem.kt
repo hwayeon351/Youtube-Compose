@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.shorts.block
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -31,6 +32,8 @@ import com.example.youtube_compose.ui.component.shorts.ShortsPlayer
 
 @Composable
 fun ShortsBlockItem(mediaUrl: String, isFocus: Boolean, onClick: () -> Unit) {
+    Log.d("[ShortsBlockItem]", "ShortsBlockItem() composition")
+
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxHeight()
