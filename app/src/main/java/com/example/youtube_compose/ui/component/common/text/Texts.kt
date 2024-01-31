@@ -1,5 +1,6 @@
 package com.example.youtube_compose.ui.component.common.text
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -14,7 +15,7 @@ import androidx.compose.ui.unit.sp
 fun Title(text: String) {
     Text(
         text = text,
-        color = Color.Black,
+        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
         fontSize = 20.sp,
         fontWeight = FontWeight.Bold,
         modifier = Modifier
@@ -27,7 +28,7 @@ fun Title(text: String) {
 fun MainText(text: String) {
     Text(
         text = text,
-        color = Color.Black,
+        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
         fontSize = 16.sp,
         modifier = Modifier
             .fillMaxWidth()

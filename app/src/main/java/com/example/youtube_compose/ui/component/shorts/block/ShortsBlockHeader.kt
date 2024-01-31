@@ -2,7 +2,7 @@ package com.example.youtube_compose.ui.component.shorts.block
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -34,7 +34,6 @@ fun ShortsBlockHeader() {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .background(Color.White)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -48,7 +47,7 @@ fun ShortsBlockHeader() {
             Spacer(modifier = Modifier.width(15.dp))
             Text(
                 text = "Shorts",
-                color = Color.Black,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
@@ -71,7 +70,7 @@ fun ShortsBlockHeader() {
         ) {
             Text(
                 text = "모두 보기",
-                color = Color.Black,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 fontSize = 10.sp
             )
         }

@@ -1,6 +1,5 @@
 package com.example.youtube_compose.ui.component.shorts.block
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +16,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -46,7 +44,6 @@ fun ShortsBlock() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(300.dp)
-                .background(Color.White)
         ) {
             itemsIndexed(list) { position, url ->
                 ShortsBlockItem(url, position == focusItemPosition) {
