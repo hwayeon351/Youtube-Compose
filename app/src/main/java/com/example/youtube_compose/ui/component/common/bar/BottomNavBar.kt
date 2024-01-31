@@ -3,9 +3,12 @@ package com.example.youtube_compose.ui.component.common.bar
 import android.annotation.SuppressLint
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.icu.text.ListFormatter.Width
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
@@ -24,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -140,11 +144,12 @@ fun BottomNavigationBar(navController: NavHostController) {
                     },
                     icon = {
                         Icon(
+                            modifier = Modifier.size(30.dp),
                             painter = painterResource(id = if (selected) nav.selectedIcon else nav.unselectedIcon),
                             contentDescription = nav.title
                         )
                     },
-                    label = { nav.title?.let { Text(text = it, fontSize = 9.sp) } },
+                    label = { nav.title?.let { Text(text = it, fontSize = 13.sp) } },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = if (isSystemInDarkTheme()) Color.Black else Color.White,
                         selectedIconColor = if (isSystemInDarkTheme()) Color.White else Color.Black,
