@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -42,9 +43,7 @@ fun ShortsBlockHeader() {
             Image(
                 painter = painterResource(id = R.drawable.icon_shorts),
                 contentDescription = "shorts 아이콘",
-                modifier = Modifier
-                    .width(30.dp)
-                    .height(30.dp)
+                modifier = Modifier.size(30.dp)
             )
             Spacer(modifier = Modifier.width(15.dp))
             Text(

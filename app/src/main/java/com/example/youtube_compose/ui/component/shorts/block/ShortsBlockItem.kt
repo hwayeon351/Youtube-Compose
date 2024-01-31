@@ -27,6 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.youtube_compose.R
+import com.example.youtube_compose.ui.component.shorts.ShortsPlayer
 
 @Composable
 fun ShortsBlockItem(mediaUrl: String, isFocus: Boolean, onClick: () -> Unit) {
@@ -40,7 +41,7 @@ fun ShortsBlockItem(mediaUrl: String, isFocus: Boolean, onClick: () -> Unit) {
             }
     ) {
         if (isFocus) {
-            ShortsBlockPlayer(mediaUrl)
+            ShortsPlayer(mediaUrl)
         } else {
             Image(
                 painter = painterResource(id = R.drawable.image_default_shorts_thumbnail),

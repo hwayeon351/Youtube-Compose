@@ -1,7 +1,7 @@
-package com.example.youtube_compose.ui.component.shorts.block
+package com.example.youtube_compose.ui.component.shorts
 
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.annotation.OptIn
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -10,11 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 
-@Composable
-fun ShortsBlockPlayer(mediaUrl: String) {
+@OptIn(UnstableApi::class) @Composable
+fun ShortsPlayer(mediaUrl: String) {
     /**
      * 기초 플레이어는 비율을 정하지 않고 비율을 파라미터로 받는 편이 좋다고 판단됨.
      * 추가적으로 자동실행을 위해서 최상위에 플레이어 하나를 두고 launched가 아닌 방향으로 하는 것이 좋다고 판단
@@ -38,6 +40,8 @@ fun ShortsBlockPlayer(mediaUrl: String) {
     LaunchedEffect(mediaSource) {
         exoPlayer.setMediaItem(mediaSource)
         exoPlayer.prepare()
+        exoPlayer.playWhenReady = true
+        exoPlayer.repeatMode = Player.REPEAT_MODE_ALL
     }
 
     // Manage lifecycle events
@@ -52,10 +56,11 @@ fun ShortsBlockPlayer(mediaUrl: String) {
         factory = { ctx ->
             PlayerView(ctx).apply {
                 player = exoPlayer
+                controllerAutoShow = false
+                controllerShowTimeoutMs = 500
             }
         },
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight() // Set your desired height
+            .fillMaxSize() // Set your desired height
     )
 }
