@@ -1,6 +1,7 @@
 package com.example.youtube_compose.ui.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,12 +21,11 @@ fun HomeScreen() {
     Row(
         modifier = Modifier
             .fillMaxSize()
+            .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
     ) {
         LazyColumn(
             state = lazyListState,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White)
+            modifier = Modifier.fillMaxWidth()
         ) {
             items(list) {
                 HalfPlayer()
