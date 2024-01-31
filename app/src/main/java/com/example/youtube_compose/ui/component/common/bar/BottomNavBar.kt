@@ -79,19 +79,19 @@ fun NavigationGraph(navController: NavHostController, paddingValues: PaddingValu
         modifier = Modifier.padding(paddingValues = paddingValues)
     ) {
         composable(BottomNav.Home.route) {
-            HomeScreen(navController = navController, paddingValues = paddingValues)
+            HomeScreen()
         }
         composable(BottomNav.Shorts.route) {
-            ShortsScreen(navController = navController, paddingValues = paddingValues)
+            ShortsScreen()
         }
         composable(BottomNav.Make.route) {
-            MakeScreen(navController = navController, paddingValues = paddingValues)
+            MakeScreen()
         }
         composable(BottomNav.Subscriptions.route) {
-            SubscriptionsScreen(navController = navController, paddingValues = paddingValues)
+            SubscriptionsScreen()
         }
         composable(BottomNav.MyPage.route) {
-            MyPageScreen(navController = navController, paddingValues = paddingValues)
+            MyPageScreen()
         }
     }
 }
